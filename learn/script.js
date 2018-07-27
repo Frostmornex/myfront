@@ -1,3 +1,37 @@
+var popup = document.querySelector('.video-popup');
+var iframeVideo = document.querySelector('.video-popup_iframe');
+var innerVideo = document.querySelector('.video-popup_inner');
+
+var btnOpen = document.querySelector('openVideo');
+var btnClose = document.querySelector('closeVideo');
+
+var openPopup = function (argument) {
+	var link = this.getAttribute('date-link');
+	var settings = '?autoplay=0&rel=0&enablejsapi=1&playerapiid=ytplayer';
+	var id = \w+$/i.exec(link)[0];
+
+	iframeVideo.setAttribute('src', 'https://www.youtube.com/embed/' + id + settings);
+
+	popup.style.display = 'block';
+
+	var width = innerVideo.offsetWidth;
+
+	console.log(width);
+
+	innerVideo.style.height = widht * 9/ 16 + 'px';
+};
+var closePopup = function (argument) {
+		iframeVideo.setAttribute('src', '');
+	popup.style.display = 'none';
+
+};
+
+btnOpen.addEventListener('click', openPopup);
+btnClose.addEventListener('click', closePopup);
+
+
+/* домашная работа
+
 function myFirstApp(name,age) {
 
 	alert("Привет, меня зовут " + name + "! И это моя первая программа!");	
@@ -35,7 +69,8 @@ function myFirstApp(name,age) {
 }
 myFirstApp("Denis", 25);
 
-/*
+//
+
 function calc(a,b) {
 	console.log(a + b)
 };
